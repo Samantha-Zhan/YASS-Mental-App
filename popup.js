@@ -83,13 +83,13 @@ function handleEndCall() {
       }
     }
 
+    console.log(conversationMap);
     console.log(conversationMap.get("You"));
 
     const url = "https://api.receptiviti.com/v1/score";
     const data = {
       request_id: "req-1",
-      content:
-        "I have the power to change my mind. Attempting to do this took courage and I am proud of myself for trying. Even though it wasn’t the outcome I hoped for, I learned a lot about myself. I might still have a way to go, but I am proud of how far I have already come.I am capable and strong, I can get through this.Tomorrow is a chance to try again, with the lessons learned from today.I will give it my all to make this work.I can’t control what other people think, say or do. I can only control me.This is an opportunity for me to try something new.I can learn from this situation and grow as a person.",
+      content: conversationMap.get("You"),
     }; // conversationMap.get("You")
 
     axios
@@ -109,7 +109,7 @@ function handleEndCall() {
         /* chrome.storage.sync.set({
           score: 10,
         }); */
-        var score = Math.ceil((goodfeel - badfeel + 0.2) / 0.35) * 100;
+        var score = Math.ceil(((goodfeel - badfeel + 0.2) / 0.5) * 100);
         $("#start-record").css("display", "none");
         $("#end-record").css("display", "block");
         move(score);
@@ -123,11 +123,12 @@ function handleEndCall() {
 var i = 0;
 function move(score) {
   var actualScore = score;
+  console.log(actualScore);
   if (actualScore < 0) {
     actualScore = 0;
   }
-  if (actualScore > 1) {
-    actualScore = 0.9;
+  if (actualScore > 100) {
+    actualScore = 99;
   }
   console.log(actualScore);
   if (i == 0) {
@@ -137,7 +138,7 @@ function move(score) {
     var width = 1;
     var id = setInterval(frame, 10);
     function frame() {
-      if (width >= actualScore * 100) {
+      if (width >= actualScore) {
         clearInterval(id);
         i = 0;
       } else {
