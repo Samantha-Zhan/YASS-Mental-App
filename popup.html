@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="heading">
+            <img class="logo" src="text_logo.png" alt="yass logo">
+    </div>
+
+    <div class="profile_container">
+        <img class="profile_icon" src="profile_icon.png" alt="profile logo">
+        <div id="greetingLine" style="display: none" class="profile_center_container">
+            <h2 class="greet1">You</h2>
+            <p class="greet2"><span id="userEmail"></span></p>
+        </div>
+        <div class="profile_right">
+            <img src="setting_icon.png" width="20px">
+        </div>
+    </div>
+    <div id="start-record" style="text-align: center;margin-top: 20px;">
+        <p style="margin: 0;">
+            <div class="icon-container">
+                <div class="icon icon-rotate"><i class="call fa fa-phone"></i></div>
+            </div>
+        </p>
+        <p style="font-weight: 600;font-size: 20px;margin: 0;">You are on a call.</p>
+    
+        <div id="captions-off">
+            <div style="text-align: center;margin-top: 10px;">
+                <p style="font-size: 15px;width: 200px;margin: auto;color: red;">Please
+                    put on captions to get your mental score calculated.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="end-record" style="display:none">
+        <h1>Your mental score: </h1>
+        <div class="bar">
+            <div id="myProgress">
+                <div id="myBar"></div>
+            </div>
+            <p class="emoji" id="emo">&#128547</p>
+        </div>
+    </div>
+         
+    <script src="axios.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="jspdf.min.js"></script>
+    <script src="data.js"></script>
+    <script src="popup.js"></script>
+
+</body>
+
+</html>
